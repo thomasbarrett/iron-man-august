@@ -1,0 +1,108 @@
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: minmax(min-content, 450px);
+    justify-content: center;
+    align-items: center;
+  }
+
+.login-container .login-border {
+    border: 1px solid rgb(213, 214, 221);
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.login-container h1 {
+    margin: 10px 0 10px 0;
+}
+
+.login-container input {
+    font-size: 16px;
+    background: rgb(232,240,253);
+    border: 1px solid rgb(213, 214, 221);
+    box-sizing: border-box;
+    margin: 10px 0 10px 0;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+}
+
+.login-container input:focus {
+    border-bottom: 1px solid #4e6ab8;
+}
+
+button {
+    font-size: 16px;
+    display: block;
+    box-sizing: border-box;
+    color: white;
+    outline: none;
+    height: 32px;
+    border-radius: 5px;
+    background-color: #4e6ab8;
+    border: 1px solid #384d85;
+    padding: 5px 10px;
+}
+
+button:hover {
+    background:  #384d85;
+}
+
+.login-container p {
+    margin: 10px;
+}
+
+form.stats-container {
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    background: white;
+}
+
+form.stats-container input[type='number'] {
+    margin: 5px 0;
+    padding: 3px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 1px solid black;
+    width: 100px;
+    outline: none;
+}
+
+.stats-container {
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    line-height: 1;
+    background: white;
+    box-sizing: border-box;
+}
+
+.stats-container p {
+    line-height: 1.5;
+}
+
+.stats-container h2 {
+    margin: 10px 0;
+}
+
+th, td {
+    text-align: left;
+    padding: 3px;
+}
