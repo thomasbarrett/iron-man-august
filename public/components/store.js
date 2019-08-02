@@ -1,5 +1,5 @@
 let store = {
-  url: 'http://10.2.31.229:3001',
+  url: 'http://165.22.145.64',
 }
 
 export { store }

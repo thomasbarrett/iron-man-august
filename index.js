@@ -85,7 +85,7 @@ StaticRouter.use(function(req, res, next) {
 app.post('/api/logout', function(req, res) {
     res.cookie('token', '', {
         httpOnly: true,
-        expire: 86400
+        expire: 0
     }).json({
         success: true,
         message: 'logout successful',
@@ -96,7 +96,6 @@ app.post('/api/logout', function(req, res) {
 app.post('/api/authenticate', function(req, res) {
     let username = req.body.username;
     let password = req.body.password;
-    
     users.findOne({ username }, (error, user) => {
         if (error) {
             throw error;
@@ -107,12 +106,15 @@ app.post('/api/authenticate', function(req, res) {
                 if (error) {
                     throw error;
                 } else if (equal) {
-                    res.cookie('token', createToken(user, 86400), {
+                    console.log(`login: ${username} ${password}`)
+                    let token = createToken(user, 86400)
+                    res.cookie('token', token, {
                         httpOnly: true,
                         expire: 86400
                     }).json({
                         success: true,
                         message: 'login successful',
+                        token,
                         user
                     });
                 } else {
@@ -232,7 +234,6 @@ app.get('/api/workouts', (req, res) => {
 
 
 app.delete('/api/workouts/:_id', (req, res) => {
-    console.log(req.params._id);
 
     workouts.deleteOne({
         _id: new ObjectID(req.params._id)
@@ -331,7 +332,7 @@ client.connect(error => {
     } else {
         users = client.db("authentication").collection("users");
         workouts = client.db("stats").collection("workouts");
-        http.listen(3001, () => console.log('Iron-Man-August Server Initiated'));
+        http.listen(80, () => console.log('Iron-Man-August Server Initiated'));
     }
 });
   
